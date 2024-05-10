@@ -6,10 +6,6 @@ public class CreateUserCommandValidator : AbstractValidator<CreateUserCommandReq
 {
     public CreateUserCommandValidator()
     {
-        RuleFor(n => n.ProfileId).NotEmpty();
-        RuleFor(n => n.ProfileId).NotNull();
-        RuleFor(n => n.ProfileId).NotEqual(0);
-
         RuleFor(n => n.FirstName).NotEmpty();
         RuleFor(n => n.FirstName).NotNull();
         RuleFor(n => n.FirstName).MinimumLength(2);

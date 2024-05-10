@@ -1,4 +1,5 @@
 ﻿using Microsoft.EntityFrameworkCore;
+using Newtonsoft.Json.Serialization;
 using NPS.Domain.Entities;
 using NPS.Domain.Entities.Common;
 using NPS.Infrastructure.Configurations;
@@ -52,7 +53,24 @@ public class ApplicationDbContext : DbContext
         modelBuilder.ApplyConfiguration(new RuleQuestionnaireConfiguration());
         modelBuilder.ApplyConfiguration(new UserQuestionnaireConfiguration());
 
+        #region camelCase
+        var camelCaseNamingStrategy = new CamelCaseNamingStrategy();
+        foreach (var entity in modelBuilder.Model.GetEntityTypes())
+        {
+            foreach (var property in entity.GetProperties())
+            {
+                // Convertir el nombre de la columna a camelCase
+                property.SetColumnName(ConvertToCamelCase(property.Name, camelCaseNamingStrategy));
+            }
+        }
+        #endregion
+
         base.OnModelCreating(modelBuilder);
+    }
+
+    private string ConvertToCamelCase(string name, CamelCaseNamingStrategy strategy)
+    {
+        return strategy.GetPropertyName(name, false);
     }
 
     #endregion Configurations
