@@ -121,11 +121,11 @@ public class BaseRepository<T> : IBaseRepository<T> where T : BaseEntity
         return await query.ToListAsync();
     }
 
-    public virtual async Task<T> GetByIdAsync(string id) => await _context.Set<T>().FindAsync(id);
+    public virtual async Task<T> GetByIdAsync(Guid id) => await _context.Set<T>().FindAsync(id);
 
     public virtual async Task<T> GetByIdAsync(int id) => await _context.Set<T>().FindAsync(id);
 
-    public virtual async Task<IEnumerable<T>> GetByIdsAsync(IEnumerable<string> ids) => await _context.Set<IEnumerable<T>>().FindAsync(ids);
+    public virtual async Task<IEnumerable<T>> GetByIdsAsync(IEnumerable<Guid> ids) => await _context.Set<IEnumerable<T>>().FindAsync(ids);
 
     public virtual async Task<IEnumerable<T>> GetByIdsAsync(IEnumerable<int> ids) => await _context.Set<IEnumerable<T>>().FindAsync(ids);
 

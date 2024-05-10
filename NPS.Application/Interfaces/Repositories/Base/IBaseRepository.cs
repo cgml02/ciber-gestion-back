@@ -57,13 +57,13 @@ public interface IBaseRepository<T> : IRepository<T> where T : BaseEntity
     Task<T> GetFirstAsync(Expression<Func<T, bool>>? predicate = null,
                                        params Expression<Func<T, object>>[] includes);
 
-    Task<T> GetByIdAsync(string id);
+    Task<T> GetByIdAsync(Guid id);
 
     Task<T> GetByIdAsync(int id);
 
     Task<T> GetForMultipleKeys(params object[] keyValues);
 
-    Task<IEnumerable<T>> GetByIdsAsync(IEnumerable<string> ids);
+    Task<IEnumerable<T>> GetByIdsAsync(IEnumerable<Guid> ids);
 
     Task<IEnumerable<T>> GetByIdsAsync(IEnumerable<int> ids);
 
