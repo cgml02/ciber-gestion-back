@@ -10,11 +10,10 @@ public class UserConfiguration : IEntityTypeConfiguration<UserEntity>
     {
         #region Configurations
 
-        builder.Property(x => x.Id).ValueGeneratedOnAdd().UseIdentityColumn();
-        builder.Property(x => x.FirstName).IsRequired();
-        builder.Property(x => x.LastName).IsRequired();
-        builder.Property(x => x.Email).IsRequired();
-        builder.Property(x => x.Password).IsRequired();
+        builder.Property(x => x.FirstName).HasMaxLength(150).IsRequired();
+        builder.Property(x => x.LastName).HasMaxLength(150).IsRequired();
+        builder.Property(x => x.Email).HasMaxLength(150).IsRequired();
+        builder.Property(x => x.Password).HasMaxLength(150).IsRequired();
 
         #endregion Configurations
 

@@ -11,7 +11,7 @@ public class CompanyConfiguration : IEntityTypeConfiguration<CompanyEntity>
         #region Configurations
 
         builder.Property(x => x.Id).ValueGeneratedOnAdd().UseIdentityColumn();
-        builder.Property(x => x.Name).IsRequired();
+        builder.Property(x => x.Name).HasMaxLength(150).IsRequired();
 
         #endregion Configurations
 
@@ -27,7 +27,7 @@ public class CompanyConfiguration : IEntityTypeConfiguration<CompanyEntity>
         #region SeedDatas
 
         CompanyEntity[] brandSeedDatas = {
-               new("Cibergestión", new DateTime(2024, 01, 01)),
+               new("Cibergestión", new DateTime(2024, 01, 01)) { Id = 1 },
           };
 
         builder.HasData(brandSeedDatas);

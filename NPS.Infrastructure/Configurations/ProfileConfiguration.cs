@@ -11,8 +11,8 @@ public class ProfileConfiguration : IEntityTypeConfiguration<ProfileEntity>
         #region Configurations
 
         builder.Property(x => x.Id).ValueGeneratedOnAdd().UseIdentityColumn();
-        builder.Property(x => x.Name).IsRequired();
-        builder.Property(x => x.Description).IsRequired();
+        builder.Property(x => x.Name).HasMaxLength(100).IsRequired();
+        builder.Property(x => x.Description).HasMaxLength(150).IsRequired();
 
         #endregion Configurations
 
@@ -28,8 +28,8 @@ public class ProfileConfiguration : IEntityTypeConfiguration<ProfileEntity>
         #region SeedDatas
 
         ProfileEntity[] brandSeedDatas = {
-               new("Administrador", "Administrador del sitio", new DateTime(2024, 01, 01)),
-               new("Votante", "Votante en el cuestionario", new DateTime(2024, 01, 01)),
+               new("Administrador", "Administrador del sitio", new DateTime(2024, 01, 01)) { Id = 1 },
+               new("Votante", "Votante en el cuestionario", new DateTime(2024, 01, 01)) { Id = 2 },
           };
 
         builder.HasData(brandSeedDatas);

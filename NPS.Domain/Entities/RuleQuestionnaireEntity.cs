@@ -8,11 +8,12 @@ public class RuleQuestionnaireEntity : BaseEntity
     {
     }
 
-    public RuleQuestionnaireEntity(int scoreStart, int scoreEnd, string classification, DateTime createdDate) : this()
+    public RuleQuestionnaireEntity(int scoreStart, int scoreEnd, string classification, int questionnaireId, DateTime createdDate) : this()
     {
         ScoreStart = scoreStart;
         ScoreEnd = scoreEnd;
         Classification = classification;
+        QuestionnaireId = questionnaireId;
         CreatedDate = createdDate;
     }
 

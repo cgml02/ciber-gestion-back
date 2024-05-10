@@ -17,6 +17,12 @@ public static class InfrastructureServiceRegistration
         services.AddDbContext<ApplicationDbContext>(options =>
              options.UseSqlServer(configuration.GetConnectionString("DefaultConnection")));
 
+        using (var serviceProvider = services.BuildServiceProvider())
+        {
+            var dbContext = serviceProvider.GetRequiredService<ApplicationDbContext>();
+            dbContext.Database.Migrate();
+        }
+
         #endregion Microsoft SQL Server
 
         #region Repositories

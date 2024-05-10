@@ -8,9 +8,11 @@ public class UserQuestionnaireEntity : BaseEntity
     {
     }
 
-    public UserQuestionnaireEntity(int score, DateTime createdDate) : this()
+    public UserQuestionnaireEntity(int score, Guid userId, int questionnaireId, DateTime createdDate) : this()
     {
         Score = score;
+        UserId = userId;
+        QuestionnaireId = questionnaireId;
         CreatedDate = createdDate;
     }
 
@@ -18,7 +20,7 @@ public class UserQuestionnaireEntity : BaseEntity
 
     public int Score { get; set; }
 
-    public int UserId { get; set; }
+    public Guid UserId { get; set; }
     public UserEntity User { get; set; }
 
     public int QuestionnaireId { get; set; }

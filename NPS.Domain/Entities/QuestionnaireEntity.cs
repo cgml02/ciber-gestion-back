@@ -8,10 +8,11 @@ public class QuestionnaireEntity : BaseEntity
     {
     }
 
-    public QuestionnaireEntity(string name, string question, DateTime createdDate) : this()
+    public QuestionnaireEntity(string name, string question, int companyId, DateTime createdDate) : this()
     {
         Name = name;
         Question = question;
+        CompanyId = companyId;
         CreatedDate = createdDate;
     }
 
