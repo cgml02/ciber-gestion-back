@@ -12,10 +12,6 @@ public class UserController : BaseController
     public async Task<IActionResult> GetUsers()
           => Ok(await Mediator.Send(new GetUsersQueryRequest()));
 
-    [HttpGet("{Id}")]
-    public async Task<IActionResult> GetUserById([FromRoute] GetUserDetailQueryRequest request)
-          => Ok(await Mediator.Send(request));
-
     [HttpPost("signup")]
     public async Task<IActionResult> CreateUser([FromBody] CreateUserCommandRequest request)
     {
@@ -24,9 +20,9 @@ public class UserController : BaseController
     }
 
     [HttpPost("login")]
-    public async Task<IActionResult> LoginUser([FromBody] CreateUserCommandRequest request)
+    public async Task<IActionResult> LoginUser([FromBody] GetUserDetailQueryRequest request)
     {
-        CreateUserCommandResponse response = await Mediator.Send(request);
+        GetUserDetailQueryResponse response = await Mediator.Send(request);
         return Created("", response);
     }
 }

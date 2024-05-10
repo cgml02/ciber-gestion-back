@@ -19,8 +19,9 @@ public class UserBusinessRules
         if (result != null && result.Count > 0) throw new Exception("El email ya existe");
     }
 
-    public void UserShouldExistWhenRequested(UserEntity user)
+    public void UserShouldExistWhenRequested(IReadOnlyList<UserEntity> user)
     {
-        if (user == null) throw new Exception("El usuario no existe");
+        if (user == null) throw new Exception("Usuario o contraseña incorrectos");
+        if (user.Count == 0) throw new Exception("Usuario o contraseña incorrectos");
     }
 }

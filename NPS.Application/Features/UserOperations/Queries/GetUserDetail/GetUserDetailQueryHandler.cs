@@ -21,13 +21,13 @@ public class GetUserDetailQueryHandler : IRequestHandler<GetUserDetailQueryReque
 
     public async Task<GetUserDetailQueryResponse> Handle(GetUserDetailQueryRequest request, CancellationToken cancellationToken)
     {
-        // Obtener usuario por Id
-        UserEntity User = await _userRepository.GetByIdAsync(request.Id);
+        // Obtener usuario por email
+        var user = await _userRepository.GetAsync(b => b.Email == request.Email && b.Password == request.Password);
 
         // Verificar que el usuario exista
-        _userBusinessRules.UserShouldExistWhenRequested(User);
+        _userBusinessRules.UserShouldExistWhenRequested(user);
 
-        GetUserDetailQueryResponse mappedUser = _mapper.Map<GetUserDetailQueryResponse>(User);
+        GetUserDetailQueryResponse mappedUser = _mapper.Map<GetUserDetailQueryResponse>(user.First());
         return mappedUser;
     }
 }
