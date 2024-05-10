@@ -33,7 +33,7 @@ public class QuestionnaireConfiguration : IEntityTypeConfiguration<Questionnaire
         #region SeedDatas
 
         QuestionnaireEntity[] brandSeedDatas = {
-               new("NPS", 
+               new("NPS",
                "¿Cuán probable es que recomiende el producto o servicio a un familiar o amigo? " +
                "Para ello se les pide calificar en una escala de 0 a 10, donde 0 es «Muy improbable» " +
                "y 10 es «Definitivamente lo recomendaría»", 1, new DateTime(2024, 01, 01)) { Id = 1 },

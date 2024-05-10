@@ -2,7 +2,6 @@
 using MediatR;
 using NPS.Application.Features.UserOperations.Rules;
 using NPS.Application.Interfaces.Repositories;
-using NPS.Domain.Entities;
 
 namespace NPS.Application.Features.UserOperations.Queries.GetUserDetail;
 
@@ -21,10 +20,10 @@ public class GetUserDetailQueryHandler : IRequestHandler<GetUserDetailQueryReque
 
     public async Task<GetUserDetailQueryResponse> Handle(GetUserDetailQueryRequest request, CancellationToken cancellationToken)
     {
-        // Obtener usuario por email
+        // Verificar email y password
         var user = await _userRepository.GetAsync(b => b.Email == request.Email && b.Password == request.Password);
 
-        // Verificar que el usuario exista
+        // Verificar que esten correctos
         _userBusinessRules.UserShouldExistWhenRequested(user);
 
         GetUserDetailQueryResponse mappedUser = _mapper.Map<GetUserDetailQueryResponse>(user.First());

@@ -54,6 +54,7 @@ public class ApplicationDbContext : DbContext
         modelBuilder.ApplyConfiguration(new UserQuestionnaireConfiguration());
 
         #region camelCase
+
         var camelCaseNamingStrategy = new CamelCaseNamingStrategy();
         foreach (var entity in modelBuilder.Model.GetEntityTypes())
         {
@@ -63,7 +64,8 @@ public class ApplicationDbContext : DbContext
                 property.SetColumnName(ConvertToCamelCase(property.Name, camelCaseNamingStrategy));
             }
         }
-        #endregion
+
+        #endregion camelCase
 
         base.OnModelCreating(modelBuilder);
     }

@@ -28,6 +28,10 @@ public static class InfrastructureServiceRegistration
         #region Repositories
 
         services.AddScoped<IUserRepository, UserRepository>();
+        services.AddScoped<IProfileRepository, ProfileRepository>();
+        services.AddScoped<IQuestionnaireRepository, QuestionnaireRepository>();
+        services.AddScoped<IRuleQuestionnaireRepository, RuleQuestionnaireRepository>();
+        services.AddScoped<IUserQuestionnaireRepository, UserQuestionnaireRepository>();
 
         #endregion Repositories
 
