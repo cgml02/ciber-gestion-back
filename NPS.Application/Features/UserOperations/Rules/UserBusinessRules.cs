@@ -16,7 +16,7 @@ public class UserBusinessRules
     {
         var result = await _userRepository.GetAsync(b => b.Email == email);
 
-        if (result != null) throw new Exception("El email ya existe");
+        if (result != null && result.Count > 0) throw new Exception("El email ya existe");
     }
 
     public void UserShouldExistWhenRequested(UserEntity user)
