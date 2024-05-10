@@ -17,13 +17,13 @@ public static class InfrastructureServiceRegistration
         services.AddDbContext<ApplicationDbContext>(options =>
              options.UseSqlServer(configuration.GetConnectionString("DefaultConnection")));
 
-        #endregion
+        #endregion Microsoft SQL Server
 
         #region Repositories
 
         services.AddScoped<IUserRepository, UserRepository>();
 
-        #endregion
+        #endregion Repositories
 
         return services;
     }

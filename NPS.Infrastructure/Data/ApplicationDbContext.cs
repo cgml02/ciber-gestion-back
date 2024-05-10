@@ -1,6 +1,7 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using NPS.Domain.Entities;
 using NPS.Domain.Entities.Common;
+using NPS.Infrastructure.Configurations;
 
 namespace NPS.Infrastructure.Data;
 
@@ -39,4 +40,20 @@ public class ApplicationDbContext : DbContext
     }
 
     #endregion SaveChangesAsync
+
+    #region Configurations
+
+    protected override void OnModelCreating(ModelBuilder modelBuilder)
+    {
+        modelBuilder.ApplyConfiguration(new UserConfiguration());
+        modelBuilder.ApplyConfiguration(new ProfileConfiguration());
+        modelBuilder.ApplyConfiguration(new CompanyConfiguration());
+        modelBuilder.ApplyConfiguration(new QuestionnaireConfiguration());
+        modelBuilder.ApplyConfiguration(new RuleQuestionnaireConfiguration());
+        modelBuilder.ApplyConfiguration(new UserQuestionnaireConfiguration());
+
+        base.OnModelCreating(modelBuilder);
+    }
+
+    #endregion Configurations
 }

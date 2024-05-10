@@ -1,13 +1,24 @@
 ﻿using NPS.Domain.Entities.Common;
-using System.ComponentModel.DataAnnotations;
 
 namespace NPS.Domain.Entities;
 
 public class ProfileEntity : BaseEntity
 {
-    [Key]
+    public ProfileEntity()
+    {
+    }
+
+    public ProfileEntity(string name, string description, DateTime createdDate) : this()
+    {
+        Name = name;
+        Description = description;
+        CreatedDate = createdDate;
+    }
+
     public int Id { get; set; }
 
     public string Name { get; set; } = string.Empty;
     public string Description { get; set; } = string.Empty;
+
+    public ICollection<UserEntity> Users { get; set; }
 }

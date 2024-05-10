@@ -2,6 +2,7 @@
 using MediatR;
 using Microsoft.Extensions.DependencyInjection;
 using NPS.Application.Features.UserOperations.Rules;
+using NPS.Application.Validations;
 using System.Reflection;
 
 namespace NPS.Application;
@@ -18,6 +19,7 @@ public static class ApplicationServicesRegistration
 
         // FluentValidation
         services.AddValidatorsFromAssembly(Assembly.GetExecutingAssembly());
+        services.AddTransient(typeof(IPipelineBehavior<,>), typeof(RequestValidationBehavior<,>));
 
         // BusinessRules
         services.AddScoped<UserBusinessRules>();
