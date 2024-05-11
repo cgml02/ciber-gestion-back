@@ -4,4 +4,5 @@ namespace NPS.Application.Features.QuestionnaireOperations.Queries.GetQuestionna
 
 public class GetQuestionnairesQueryRequest : IRequest<List<GetQuestionnairesQueryResponse>>
 {
+    public Guid? UserId { get; set; }
 }

@@ -5,6 +5,7 @@ using NPS.Application.Features.UserOperations.Commands;
 using NPS.Application.Features.UserOperations.Queries.GetProfileDetail;
 using NPS.Application.Features.UserOperations.Queries.GetUserDetail;
 using NPS.Application.Features.UserOperations.Queries.GetUsers;
+using NPS.Application.Features.UserQuestionnaireOperations.Commands;
 using NPS.Domain.Entities;
 
 namespace NPS.Application.Profiles;
@@ -13,7 +14,7 @@ public class MappingProfiles : Profile
 {
     public MappingProfiles()
     {
-        // Users
+        // User
         CreateMap<UserEntity, CreateUserCommandResponse>().ReverseMap();
         CreateMap<UserEntity, CreateUserCommandRequest>().ReverseMap();
         CreateMap<UserEntity, GetUsersQueryResponse>().ReverseMap();
@@ -27,5 +28,9 @@ public class MappingProfiles : Profile
 
         // RuleQuestionnaire
         CreateMap<RuleQuestionnaireEntity, GetRuleQuestionnaireDetailQueryResponse>().ReverseMap();
+
+        // UserQuestionnaire
+        CreateMap<UserQuestionnaireEntity, CreateUserQuestionnaireCommandResponse>().ReverseMap();
+        CreateMap<UserQuestionnaireEntity, CreateUserQuestionnaireCommandRequest>().ReverseMap();
     }
 }

@@ -2,6 +2,7 @@
 using MediatR;
 using Microsoft.Extensions.DependencyInjection;
 using NPS.Application.Features.UserOperations.Rules;
+using NPS.Application.Features.UserQuestionnaireOperations.Rules;
 using NPS.Application.Validations;
 using System.Reflection;
 
@@ -23,6 +24,7 @@ public static class ApplicationServicesRegistration
 
         // BusinessRules
         services.AddScoped<UserBusinessRules>();
+        services.AddScoped<UserQuestionnaireBusinessRules>();
 
         return services;
     }

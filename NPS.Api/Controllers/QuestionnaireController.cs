@@ -6,7 +6,7 @@ namespace NPS.Api.Controllers;
 
 public class QuestionnaireController : BaseController
 {
-    [HttpGet]
-    public async Task<IActionResult> GetQuestionnaires()
-          => Ok(await Mediator.Send(new GetQuestionnairesQueryRequest()));
+    [HttpGet("{UserId}")]
+    public async Task<IActionResult> GetQuestionnaires([FromRoute] GetQuestionnairesQueryRequest request)
+          => Ok(await Mediator.Send(request));
 }
