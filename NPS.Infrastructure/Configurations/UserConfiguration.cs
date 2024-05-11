@@ -29,8 +29,8 @@ public class UserConfiguration : IEntityTypeConfiguration<UserEntity>
         #region SeedDatas
 
         UserEntity[] brandSeedDatas = {
-               new(Guid.NewGuid(), "Carlos", "Medina", "cgml02@hotmail.com", "superadmin2024", 1, new DateTime(2024, 01, 01)),
-               new(Guid.NewGuid(), "Votante", "Prueba", "test@hotmail.com", "votante2024", 2, new DateTime(2024, 01, 01)),
+               new(Guid.NewGuid(), "Carlos", "Medina", "cgml02@hotmail.com", "uH/y/Lr+GZjtUuJuhg1os6THungwxmTxYnLasuzhxq9obhaC", 1, new DateTime(2024, 01, 01)),
+               new(Guid.NewGuid(), "Votante", "Prueba", "test@hotmail.com", "3AseC+IKT6jv9tj2OauK6I+M3OvzJOK2JGGk5ajBvBlrNkXk", 2, new DateTime(2024, 01, 01)),
           };
 
         builder.HasData(brandSeedDatas);

@@ -1,7 +1,6 @@
-﻿using Newtonsoft.Json;
-using System.Net.Http;
+﻿using Microsoft.AspNetCore.Http;
+using Newtonsoft.Json;
 using System.Net;
-using Microsoft.AspNetCore.Http;
 
 namespace NPS.Infrastructure.Middleware;
 

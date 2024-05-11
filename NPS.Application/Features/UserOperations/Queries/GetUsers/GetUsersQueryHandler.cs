@@ -17,7 +17,7 @@ public class GetUsersQueryHandler : IRequestHandler<GetUsersQueryRequest, List<G
 
     public async Task<List<GetUsersQueryResponse>> Handle(GetUsersQueryRequest request, CancellationToken cancellationToken)
     {
-        // Obtener usuario por Id
+        // Obtener usuarios
         var users = await _userRepository.GetAllAsync();
 
         List<GetUsersQueryResponse> mappedUser = _mapper.Map<List<GetUsersQueryResponse>>(users);

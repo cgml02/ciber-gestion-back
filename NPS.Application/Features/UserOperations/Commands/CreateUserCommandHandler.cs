@@ -27,6 +27,9 @@ public class CreateUserCommandHandler : IRequestHandler<CreateUserCommandRequest
         // Map a entidad
         UserEntity mappedUser = _mapper.Map<UserEntity>(request);
 
+        string hashedPassword = _userBusinessRules.HashPassword(request.Password);
+        mappedUser.Password = hashedPassword;
+
         // Registrar usuario
         UserEntity createdUser = await _userRepository.AddAsync(mappedUser);
         await _userRepository.SaveAsync();

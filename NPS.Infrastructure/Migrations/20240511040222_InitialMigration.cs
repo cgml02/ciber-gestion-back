@@ -156,12 +156,12 @@ namespace NPS.Infrastructure.Migrations
             migrationBuilder.InsertData(
                 table: "Users",
                 columns: new[] { "id", "createdDate", "email", "firstName", "lastName", "password", "profileId" },
-                values: new object[] { new Guid("10140112-b6ad-4a0e-8d19-ba56fc05c3e9"), new DateTime(2024, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified), "test@hotmail.com", "Votante", "Prueba", "votante2024", 2 });
+                values: new object[] { new Guid("9cd0a824-21f4-4a48-b06a-76439283d707"), new DateTime(2024, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified), "test@hotmail.com", "Votante", "Prueba", "3AseC+IKT6jv9tj2OauK6I+M3OvzJOK2JGGk5ajBvBlrNkXk", 2 });
 
             migrationBuilder.InsertData(
                 table: "Users",
                 columns: new[] { "id", "createdDate", "email", "firstName", "lastName", "password", "profileId" },
-                values: new object[] { new Guid("7928a4cd-b8c0-45ae-a950-e79d06e4e20c"), new DateTime(2024, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified), "cgml02@hotmail.com", "Carlos", "Medina", "superadmin2024", 1 });
+                values: new object[] { new Guid("e62021e7-3e99-423b-a367-232a1483b11f"), new DateTime(2024, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified), "cgml02@hotmail.com", "Carlos", "Medina", "uH/y/Lr+GZjtUuJuhg1os6THungwxmTxYnLasuzhxq9obhaC", 1 });
 
             migrationBuilder.InsertData(
                 table: "RulesQuestionnaire",

@@ -45,9 +45,9 @@ public class GetUserQuestionnaireQuestionnaireDetailQueryHandler : IRequestHandl
         foreach (var response in userQuestionnaires)
         {
             var classification = ruleDictionary.FirstOrDefault(r => r.Key.ScoreStart <= response.Score && r.Key.ScoreEnd >= response.Score).Value;
-            if (classification == "Promotores") promoters += response.Score;
-            else if (classification == "Detractores") detractors += response.Score;
-            else neutrals += response.Score;
+            if (classification == "Promotores") promoters++;
+            else if (classification == "Detractores") detractors++;
+            else neutrals++;
         }
 
         double nps = CalculateNPS(promoters, detractors, userQuestionnaires.Count);

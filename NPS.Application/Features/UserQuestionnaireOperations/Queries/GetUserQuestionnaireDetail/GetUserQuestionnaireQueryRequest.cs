@@ -4,5 +4,5 @@ namespace NPS.Application.Features.UserQuestionnaireOperations.Queries.GetUserQu
 
 public class GetUserQuestionnaireDetailQueryRequest : IRequest<GetUserQuestionnaireDetailQueryResponse>
 {
-    public int QuestionnaireId {  get; set; }
+    public int QuestionnaireId { get; set; }
 }

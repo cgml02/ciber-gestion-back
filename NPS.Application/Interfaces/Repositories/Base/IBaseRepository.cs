@@ -39,7 +39,7 @@ public interface IBaseRepository<T> : IRepository<T> where T : BaseEntity
 
     Task<IReadOnlyList<T>> GetAllAsync();
 
-    Task<IReadOnlyList<T>> GetAsync(Expression<Func<T, bool>>? predicate = null); // GetAsync
+    Task<IReadOnlyList<T>> GetAsync(Expression<Func<T, bool>>? predicate = null);
 
     Task<IReadOnlyList<T>> GetAsync(Expression<Func<T, bool>>? predicate = null,
                                          params Expression<Func<T, object>>[] includes);

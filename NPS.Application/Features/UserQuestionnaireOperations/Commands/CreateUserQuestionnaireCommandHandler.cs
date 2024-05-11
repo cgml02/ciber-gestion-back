@@ -1,6 +1,5 @@
 ﻿using AutoMapper;
 using MediatR;
-using NPS.Application.Features.UserOperations.Rules;
 using NPS.Application.Features.UserQuestionnaireOperations.Rules;
 using NPS.Application.Interfaces.Repositories;
 using NPS.Domain.Entities;
@@ -28,7 +27,7 @@ public class CreateUserQuestionnaireCommandHandler : IRequestHandler<CreateUserQ
         // Map a entidad
         UserQuestionnaireEntity mappedUserQuestionnaire = _mapper.Map<UserQuestionnaireEntity>(request);
 
-        // Registrar usuario
+        // Registrar encuesta respondida por el usuario
         UserQuestionnaireEntity createdUserQuestionnaire = await _userQuestionnaireRepository.AddAsync(mappedUserQuestionnaire);
         await _userQuestionnaireRepository.SaveAsync();
 

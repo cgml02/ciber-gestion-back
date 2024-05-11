@@ -20,11 +20,14 @@ public class GetUserDetailQueryHandler : IRequestHandler<GetUserDetailQueryReque
 
     public async Task<GetUserDetailQueryResponse> Handle(GetUserDetailQueryRequest request, CancellationToken cancellationToken)
     {
-        // Verificar email y password
-        var user = await _userRepository.GetAsync(b => b.Email == request.Email && b.Password == request.Password);
+        // Verificar email
+        var user = await _userRepository.GetAsync(b => b.Email == request.Email);
 
-        // Verificar que esten correctos
+        // Verificar que el usuario existe
         _userBusinessRules.UserShouldExistWhenRequested(user);
+
+        // Verificar que la password este correcta
+        _userBusinessRules.VerifyPassword(request.Password, user.First().Password);
 
         GetUserDetailQueryResponse mappedUser = _mapper.Map<GetUserDetailQueryResponse>(user.First());
         return mappedUser;

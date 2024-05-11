@@ -260,22 +260,22 @@ namespace NPS.Infrastructure.Migrations
                     b.HasData(
                         new
                         {
-                            Id = new Guid("7928a4cd-b8c0-45ae-a950-e79d06e4e20c"),
+                            Id = new Guid("e62021e7-3e99-423b-a367-232a1483b11f"),
                             CreatedDate = new DateTime(2024, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Email = "cgml02@hotmail.com",
                             FirstName = "Carlos",
                             LastName = "Medina",
-                            Password = "superadmin2024",
+                            Password = "uH/y/Lr+GZjtUuJuhg1os6THungwxmTxYnLasuzhxq9obhaC",
                             ProfileId = 1
                         },
                         new
                         {
-                            Id = new Guid("10140112-b6ad-4a0e-8d19-ba56fc05c3e9"),
+                            Id = new Guid("9cd0a824-21f4-4a48-b06a-76439283d707"),
                             CreatedDate = new DateTime(2024, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Email = "test@hotmail.com",
                             FirstName = "Votante",
                             LastName = "Prueba",
-                            Password = "votante2024",
+                            Password = "3AseC+IKT6jv9tj2OauK6I+M3OvzJOK2JGGk5ajBvBlrNkXk",
                             ProfileId = 2
                         });
                 });
